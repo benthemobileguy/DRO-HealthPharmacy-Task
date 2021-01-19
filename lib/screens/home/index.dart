@@ -1,4 +1,7 @@
+import 'package:DROHealthPharmacy/screens/home/components/card-item-component.dart';
+import 'package:DROHealthPharmacy/screens/home/components/circle-button.dart';
 import 'package:DROHealthPharmacy/theme/style.dart';
+import 'package:DROHealthPharmacy/utils/global-variables.dart';
 import 'package:flutter/material.dart';
 import 'package:mdi/mdi.dart';
 class HomePage extends StatefulWidget {
@@ -24,7 +27,33 @@ class _HomePageState extends State<HomePage> {
           style: defaultTextStyle,
         )
       ),
-      body: Icon(Icons.sort_rounded),
+      body: Column(
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CircleButton(image: "assets/images/sort.png",),
+              SizedBox(
+                width: 40,
+              ),
+           CircleButton(
+image: "assets/images/filter.png",
+           ),
+              SizedBox(
+                width: 40,
+              ),
+              CircleButton(
+                image: "assets/images/search.png",
+              ),
+            ],
+          ),
+          CardItemComponent(
+         images: images,
+          )
+        ],
+      )
     );
   }
 }
+

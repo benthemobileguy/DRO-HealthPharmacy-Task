@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 final Color darkPurple = HexColor("#7B4397");
 final Color greyColor = HexColor("#909090");
 final Color droPurple = HexColor("#9F5DE2");
+final Color circleBg = HexColor("#F2F2F2");
 final Color droTurquoise = HexColor("#0CB8B6");
 
 

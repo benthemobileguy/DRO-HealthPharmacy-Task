@@ -48,6 +48,7 @@ flutter:
   assets:
     - assets/images/
     - assets/lottie/
+    - assets/images/items/
   fonts:
 
     - family: ProximaNova
