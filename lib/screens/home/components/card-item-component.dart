@@ -10,6 +10,7 @@ class CardItemComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: GridView.count(
+          childAspectRatio: MediaQuery.of(context).size.height / 850,
         shrinkWrap: true,
           crossAxisCount: 2,
           crossAxisSpacing: 5,
@@ -25,6 +26,9 @@ class CardItemComponent extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    SizedBox(
+                      height: 10,
+                    ),
                     Container(
                       height: 120.0,
                       decoration: BoxDecoration(
@@ -45,6 +49,24 @@ class CardItemComponent extends StatelessWidget {
                       style: lightTextStyle,),
                     SizedBox(
                       height: 10,
+                    ),
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: greyColor,
+                          borderRadius: BorderRadius
+                              .all(Radius.circular(20))
+                        ),
+                        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+                        child: Text('\u20A6${prices[index]}',
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontFamily: 'ProximaNova"',
+                            fontWeight: FontWeight.w500,
+                            color: Colors.white,
+                          ),),
+                      ),
                     ),
                   ],
                 ),

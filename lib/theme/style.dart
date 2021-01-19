@@ -23,7 +23,7 @@ TextStyle defaultTextStyle = TextStyle(
   color: Colors.black,
 );
 TextStyle lightTextStyle = TextStyle(
-  fontSize: 12.5,
+  fontSize: 12,
   fontFamily: 'ProximaNova"',
   fontWeight: FontWeight.w500,
   color: greyColor,
