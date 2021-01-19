@@ -48,9 +48,13 @@ image: "assets/images/filter.png",
               ),
             ],
           ),
-          CardItemComponent(
-         images: images,
-          )
+          SizedBox(
+            height: 30,
+          ),
+          CardItemComponent(),
+          SizedBox(
+            height: 30,
+          ),
         ],
       )
     );
