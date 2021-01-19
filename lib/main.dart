@@ -1,6 +1,9 @@
 import 'dart:async';
+import 'package:DROHeaalthPharmacy/bloc/default.dart';
+import 'package:DROHeaalthPharmacy/screens/splash-screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
 
 Future<void> main() async {
