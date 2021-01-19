@@ -17,7 +17,7 @@ class CardItemComponent extends StatelessWidget {
           mainAxisSpacing: 5,
         children: List.generate(images.length, (index){
          return Card(
-           elevation: 2.0,
+           elevation: 3.0,
             child: Container(
               height: 300,
               width: 200.0,

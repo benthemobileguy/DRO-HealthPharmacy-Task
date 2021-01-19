@@ -1,7 +1,6 @@
 import 'package:DROHealthPharmacy/screens/home/components/card-item-component.dart';
 import 'package:DROHealthPharmacy/screens/home/components/circle-button.dart';
 import 'package:DROHealthPharmacy/theme/style.dart';
-import 'package:DROHealthPharmacy/utils/global-variables.dart';
 import 'package:flutter/material.dart';
 import 'package:mdi/mdi.dart';
 class HomePage extends StatefulWidget {
@@ -55,6 +54,16 @@ image: "assets/images/filter.png",
           SizedBox(
             height: 30,
           ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              decoration: BoxDecoration(
+                color: droPurple
+              ),
+              height: 100,
+
+            ),
+          )
         ],
       )
     );
