@@ -1,4 +1,4 @@
-import 'package:DROHeaalthPharmacy/utils/color.dart';
+import 'package:DROHealthPharmacy/utils/color.dart';
 import 'package:flutter/material.dart';
 
 final Color darkPurple = HexColor("#7B4397");

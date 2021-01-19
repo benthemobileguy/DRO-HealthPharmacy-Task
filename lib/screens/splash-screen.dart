@@ -1,4 +1,5 @@
-
+import 'package:DROHealthPharmacy/screens/home/index.dart';
+import 'package:flutter/material.dart';
 class SplashScreen extends StatefulWidget {
   @override
   _SplashScreenState createState() => _SplashScreenState();
@@ -6,15 +7,13 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen>
     with TickerProviderStateMixin {
-  PrefManager prefManager = PrefManager();
-  List<bool> isCustomised;
   Animation<double> animation;
   AnimationController _controller;
   Animation<double> _animation;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white.withOpacity(0.1),
+      backgroundColor: Colors.white,
       body: Center(
           child: ScaleTransition(
             scale: _animation,
@@ -36,6 +35,7 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     // TODO: implement initState
     super.initState();
+    //animation for image logo splash screen
     _controller = AnimationController(
         duration: const Duration(milliseconds: 2000),
         value: 0.1,
@@ -45,36 +45,17 @@ class _SplashScreenState extends State<SplashScreen>
     _controller.forward();
     //Splash screen delay before passing moving to next screen
     Future.delayed(Duration(seconds: 5), () {
-      checkLoginState();
+      goToHome();
     });
   }
 
-  void checkLoginState() async {
-    String launchStatus = await prefManager
-        .getFirstTimeLaunch();
-    if (launchStatus != "launched"){
-      Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) =>OnboardingScreen()));
-    }
-    else {
-      FirebaseAuth.instance.currentUser().then((value) async {
-        if(value!=null){
-          await HelperMethods.getCurrentUserInfo();
-          goToHome();
-        } else{
-          goToHome();
-        }
-      });
 
-    }
-
-  }
 
   void goToHome() {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) =>Base()),
+      MaterialPageRoute(builder: (context)
+      =>HomePage()),
     );
   }
 }

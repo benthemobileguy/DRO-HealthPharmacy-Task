@@ -52,7 +52,7 @@ flutter:
 
     - family: CircularStd
       fonts:
-        - asset: aassets/fonts/circular-std/CircularStd-Bold.ttf
+        - asset: assets/fonts/circular-std/CircularStd-Bold.ttf
           weight: 700
         - asset: assets/fonts/circular-std/CircularStd-Medium.ttf
           weight: 300

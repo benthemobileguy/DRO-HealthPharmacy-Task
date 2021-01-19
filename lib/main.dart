@@ -1,7 +1,7 @@
 import 'dart:async';
-import 'package:DROHeaalthPharmacy/bloc/default.dart';
-import 'package:DROHeaalthPharmacy/screens/splash-screen.dart';
-import 'package:DROHeaalthPharmacy/theme/style.dart';
+import 'package:DROHealthPharmacy/bloc/default.dart';
+import 'package:DROHealthPharmacy/screens/splash-screen.dart';
+import 'package:DROHealthPharmacy/theme/style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
