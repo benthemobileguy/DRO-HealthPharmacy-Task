@@ -37,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen>
     super.initState();
     //animation for image logo splash screen
     _controller = AnimationController(
-        duration: const Duration(milliseconds: 2000),
+        duration: const Duration(milliseconds: 4000),
         value: 0.1,
         vsync: this);
     _animation = CurvedAnimation(parent: _controller, curve: Curves.easeIn);

@@ -50,13 +50,13 @@ flutter:
     - assets/lottie/
   fonts:
 
-    - family: CircularStd
+    - family: ProximaNova
       fonts:
-        - asset: assets/fonts/circular-std/CircularStd-Bold.ttf
+        - asset: assets/fonts/proxima-nova/proxima-nova.otf
           weight: 700
-        - asset: assets/fonts/circular-std/CircularStd-Medium.ttf
+        - asset: assets/fonts/proxima-nova/proxima-nova.otf
           weight: 300
-        - asset: assets/fonts/circular-std/CircularStd-Book.ttf
+        - asset: assets/fonts/proxima-nova/proxima-nova.otf
           weight: 200
 
 analyzer:
