@@ -1,6 +1,8 @@
+import 'package:DROHealthPharmacy/model/product.dart';
 import 'package:DROHealthPharmacy/screens/home/components/card-item-component.dart';
 import 'package:DROHealthPharmacy/screens/home/components/circle-button.dart';
 import 'package:DROHealthPharmacy/theme/style.dart';
+import 'package:DROHealthPharmacy/utils/global-variables.dart';
 import 'package:flutter/material.dart';
 import 'package:mdi/mdi.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -11,7 +13,15 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool isSearchTextShown = false;
+  List<Product> products = [];
+  List<Product> filteredProducts = [];
   TextEditingController _textController = TextEditingController();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    addItemsToList();
+  }
   @override
   Widget build(BuildContext context) {
     Widget searchBar = TextField(
@@ -41,6 +51,7 @@ class _HomePageState extends State<HomePage> {
             onPressed: (){
               setState(() {
                 _textController.text= "";
+                filteredProducts = products;
               });
             },
             icon: Icon(Icons.close,
@@ -55,7 +66,18 @@ class _HomePageState extends State<HomePage> {
           ),
           contentPadding: const EdgeInsets.all(10.0)),
       onChanged: (string) {
-        if(string!=""){
+        //reset to default list if search bar is empty
+       if(string == ""){
+         setState(() {
+           filteredProducts = products;
+         });
+       }
+        //check for text characters
+        filteredProducts = products
+            .where((u) => ((u.name.toLowerCase())
+            .contains(string.toLowerCase())))
+            .toList();
+        if(filteredProducts.isEmpty){
           setState(() {
             isSearchTextShown = true;
           });
@@ -64,26 +86,10 @@ class _HomePageState extends State<HomePage> {
             isSearchTextShown = false;
           });
         }
-        //check for text characters
-        // filteredData = users
-        //     .where((u) => ((u.first_name.toLowerCase() +
-        //     " " +
-        //     u.last_name.toLowerCase())
-        //     .contains(string.toLowerCase()) ||
-        //     u.industry.toLowerCase().contains(string.toLowerCase()) ||
-        //     u.country.toLowerCase().contains(string.toLowerCase())))
-        //     .toList();
-        // if (filteredData.isEmpty) {
-        //   setState(() {
-        //     isSearchingMore = true;
-        //   });
-        // } else {
-        //   setState(() {
-        //     isSearchingMore = false;
-        //   });
         },
     );
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
@@ -128,7 +134,10 @@ image: "assets/images/filter.png",
           SizedBox(
             height: 15,
           ),
-          CardItemComponent(),
+          CardItemComponent(products: filteredProducts,),
+          SizedBox(
+            height: 10,
+          ),
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
@@ -187,10 +196,24 @@ image: "assets/images/filter.png",
               ),
 
             ),
-          )
+          ),
+
         ],
       )
     );
+  }
+
+ addItemsToList() async{
+    //add items to list
+    images.asMap().forEach((i, value) {
+      products.add(Product(image: images[i],
+          name: names[i], type: types[i],
+          quantity: quantity[i],
+          amount: prices[i]));
+    });
+    setState(() {
+     filteredProducts = products;
+    });
   }
 }
 
