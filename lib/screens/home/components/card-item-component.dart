@@ -1,4 +1,5 @@
 import 'package:DROHealthPharmacy/model/product.dart';
+import 'package:DROHealthPharmacy/screens/product-detail/index.dart';
 import 'package:DROHealthPharmacy/theme/style.dart';
 import 'package:DROHealthPharmacy/utils/global-variables.dart';
 import 'package:flutter/material.dart';
@@ -21,63 +22,72 @@ class CardItemComponent extends StatelessWidget {
             crossAxisSpacing: 5,
             mainAxisSpacing: 5,
           children: List.generate(products.length, (index){
-           return Card(
-             elevation: 3.0,
-              child: Container(
-                height: 300,
-                width: 200.0,
+           return GestureDetector(
+             onTap: (){
+               Navigator.push(
+                 context,
+                 MaterialPageRoute(builder: (context)
+                 => ProductDetail()),
+               );
+             },
+             child: Card(
+               elevation: 3.0,
                 child: Container(
-                  padding: EdgeInsets.only(left: 10, right: 10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        height: 120.0,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(products[index].image),
-                                fit: BoxFit.contain
-                            )
+                  height: 300,
+                  width: 200.0,
+                  child: Container(
+                    padding: EdgeInsets.only(left: 10, right: 10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 10,
                         ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(products[index].name,
-                        style: defaultTextStyle,),
-                      Text(products[index].type,
-                        style: lightTextStyle,),
-                      Text(products[index].quantity,
-                        style: lightTextStyle,),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Align(
-                        alignment: Alignment.bottomRight,
-                        child: Container(
+                        Container(
+                          height: 120.0,
                           decoration: BoxDecoration(
-                              color: greyColor,
-                            borderRadius: BorderRadius
-                                .all(Radius.circular(20))
+                              image: DecorationImage(
+                                  image: AssetImage(products[index].image),
+                                  fit: BoxFit.contain
+                              )
                           ),
-                          padding: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
-                          child: Text('\u20A6${products[index].amount}',
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontFamily: 'ProximaNova"',
-                              fontWeight: FontWeight.w500,
-                              color: Colors.white,
-                            ),),
                         ),
-                      ),
-                    ],
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(products[index].name,
+                          style: defaultTextStyle,),
+                        Text(products[index].type,
+                          style: lightTextStyle,),
+                        Text(products[index].quantity,
+                          style: lightTextStyle,),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Align(
+                          alignment: Alignment.bottomRight,
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: greyColor,
+                              borderRadius: BorderRadius
+                                  .all(Radius.circular(20))
+                            ),
+                            padding: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+                            child: Text('\u20A6${products[index].amount}',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontFamily: 'ProximaNova"',
+                                fontWeight: FontWeight.w500,
+                                color: Colors.white,
+                              ),),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-            );
+           );
           })),
       ),
     );

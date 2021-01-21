@@ -115,7 +115,7 @@ class _HomePageState extends State<HomePage> {
                 width: 40,
               ),
            CircleButton(
-image: "assets/images/filter.png",
+         image: "assets/images/filter.png",
            ),
               SizedBox(
                 width: 40,
