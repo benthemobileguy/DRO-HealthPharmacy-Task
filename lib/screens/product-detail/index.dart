@@ -61,20 +61,129 @@ class _ProductDetailState extends State<ProductDetail> {
           ),
         ],
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Align(
-            alignment: Alignment.center,
-            child: Container(
-              width: 250,
-              height: 250,
-              child: new Image.asset
-                (mainBloc.products[widget.index].image),
-            ),
-          ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 14),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Align(
+                alignment: Alignment.center,
+                child: Container(
+                  width: 250,
+                  height: 250,
+                  child: new Image.asset
+                    (mainBloc.products[widget.index].image),
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Text(mainBloc.products[widget.index].name,
+                style: TextStyle(
+                  fontSize: 18.5,
+                  fontFamily: 'ProximaNova"',
+                  fontWeight: FontWeight.w700,
+                  color: Colors.black,
+                ),),
+              Text('${mainBloc.products[widget.index].quantity}',
+                style: TextStyle(
+                  fontSize: 12.5,
+                  fontFamily: 'ProximaNova"',
+                  fontWeight: FontWeight.w500,
+                  color: greyColor,
+                ),),
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                        color: Colors.grey,
+                      shape: BoxShape.circle
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('SOLD BY',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontFamily: 'ProximaNova"',
+                          fontWeight: FontWeight.w700,
+                          color: greyColor,
+                        ),),
+                      SizedBox(
+                        height: 3,
+                      ),
+                      Text('Emzor Pharmaceuticals',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontFamily: 'ProximaNova"',
+                          fontWeight: FontWeight.w700,
+                          color: Colors.blueGrey,
+                        ),),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
+             Row(
+               children: [
+                 Container(
+                   padding: EdgeInsets.all(20),
+                   decoration: BoxDecoration(
+                     border: Border.all(color: Colors.grey),
+                     borderRadius: BorderRadius.all(
+                         Radius.circular(20)),
+                   ),
+                   child: Row(
+                     children: [
+                       Icon(
+                         Mdi.minus
+                       ),
+                       SizedBox(
+                         width: 20,
+                       ),
+                       Text('1',
+                         style: TextStyle(
+                           fontSize: 12.5,
+                           fontFamily: 'ProximaNova"',
+                           fontWeight: FontWeight.w500,
+                           color: greyColor,
+                         ),),
+                       SizedBox(
+                         width: 20,
+                       ),
+                       Icon(
+                           Mdi.plus
+                       ),
+                     ],
+                   ),
+                 ),
+                 Text('Packs(s)',
+                   style: TextStyle(
+                     fontSize: 12.5,
+                     fontFamily: 'ProximaNova"',
+                     fontWeight: FontWeight.w500,
+                     color: greyColor,
+                   ),),
+               ],
+             )
 
-        ],
+            ],
+          ),
+        ),
       ),
       backgroundColor: Colors.white,
     );
