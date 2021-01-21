@@ -1,12 +1,23 @@
+import 'package:DROHealthPharmacy/bloc/default.dart';
 import 'package:DROHealthPharmacy/theme/style.dart';
 import 'package:flutter/material.dart';
 import 'package:mdi/mdi.dart';
+import 'package:provider/provider.dart';
 class ProductDetail extends StatefulWidget {
+ final int index;
+  const ProductDetail({Key key, this.index}) : super(key: key);
   @override
   _ProductDetailState createState() => _ProductDetailState();
 }
 
 class _ProductDetailState extends State<ProductDetail> {
+  MainBloc mainBloc;
+  @override
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
+    mainBloc = Provider.of<MainBloc>(context);
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,6 +59,21 @@ class _ProductDetailState extends State<ProductDetail> {
               ],
             ),
           ),
+        ],
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Align(
+            alignment: Alignment.center,
+            child: Container(
+              width: 250,
+              height: 250,
+              child: new Image.asset
+                (mainBloc.products[widget.index].image),
+            ),
+          ),
+
         ],
       ),
       backgroundColor: Colors.white,

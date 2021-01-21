@@ -27,7 +27,7 @@ class CardItemComponent extends StatelessWidget {
                Navigator.push(
                  context,
                  MaterialPageRoute(builder: (context)
-                 => ProductDetail()),
+                 => ProductDetail(index: index)),
                );
              },
              child: Card(

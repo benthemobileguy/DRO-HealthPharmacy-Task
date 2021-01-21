@@ -1,3 +1,4 @@
+import 'package:DROHealthPharmacy/bloc/default.dart';
 import 'package:DROHealthPharmacy/model/product.dart';
 import 'package:DROHealthPharmacy/screens/home/components/card-item-component.dart';
 import 'package:DROHealthPharmacy/screens/home/components/circle-button.dart';
@@ -6,6 +7,8 @@ import 'package:DROHealthPharmacy/utils/global-variables.dart';
 import 'package:flutter/material.dart';
 import 'package:mdi/mdi.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:provider/provider.dart';
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -14,16 +17,29 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   bool isSearchTextShown = false;
   List<Product> products = [];
+  bool isInitialised = false;
   List<Product> filteredProducts = [];
   TextEditingController _textController = TextEditingController();
+  MainBloc mainBloc;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    addItemsToList();
+  }
+  @override
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
+    mainBloc = Provider.of<MainBloc>(context);
   }
   @override
   Widget build(BuildContext context) {
+    if(!isInitialised){
+      Future.delayed(Duration.zero, () async {
+        addItemsToList();
+      });
+      isInitialised = true;
+    }
     Widget searchBar = TextField(
       style: TextStyle(
         color: Colors.black,
@@ -210,10 +226,13 @@ class _HomePageState extends State<HomePage> {
           name: names[i], type: types[i],
           quantity: quantity[i],
           amount: prices[i]));
+
     });
+    mainBloc.products = products;
     setState(() {
      filteredProducts = products;
     });
+
   }
 }
 
