@@ -48,6 +48,9 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
         child:  Column(
             mainAxisSize: MainAxisSize.min,
             children: [
+              SizedBox(
+                height: 10,
+              ),
               Text('Successful',
                 style: TextStyle(
                   fontSize: 14.5,
@@ -118,15 +121,17 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
           left: Constants.padding,
           right: Constants.padding,
           child: CircleAvatar(
-            backgroundColor: Colors.white,
+            backgroundColor: Colors.transparent,
             radius: Constants.avatarRadius,
-            child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(Constants.avatarRadius)),
-                child: Lottie.asset(
-                  'assets/lottie/tick.json',
-                  repeat: false,
-                  fit: BoxFit.contain,
-                )
+            child: Container(
+              child: ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(Constants.avatarRadius)),
+                  child: Lottie.asset(
+                    'assets/lottie/tick.json',
+                    repeat: false,
+                    fit: BoxFit.fill,
+                  )
+              ),
             ),
           ),
         ),

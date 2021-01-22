@@ -17,6 +17,7 @@ class ProductDetail extends StatefulWidget {
 
 class _ProductDetailState extends State<ProductDetail> {
   MainBloc mainBloc;
+  int packNo = 1;
   @override
   void didChangeDependencies() {
     // TODO: implement didChangeDependencies
@@ -146,7 +147,6 @@ class _ProductDetailState extends State<ProductDetail> {
              Row(
                children: [
                  Container(
-                   padding: EdgeInsets.all(8),
                    decoration: BoxDecoration(
                      border: Border.all(color: Colors.grey),
                      borderRadius: BorderRadius.all(
@@ -154,13 +154,18 @@ class _ProductDetailState extends State<ProductDetail> {
                    ),
                    child: Row(
                      children: [
-                       Icon(
-                         Mdi.minus
+                       IconButton(
+                         icon: Icon( Mdi.minus),
+                         padding: EdgeInsets.zero,
+                         onPressed: (){
+                           reducePackNo();
+                         },
+
                        ),
                        SizedBox(
                          width: 20,
                        ),
-                       Text('1',
+                       Text('$packNo',
                          style: TextStyle(
                            fontSize: 18,
                            fontFamily: 'ProximaNova"',
@@ -170,8 +175,13 @@ class _ProductDetailState extends State<ProductDetail> {
                        SizedBox(
                          width: 20,
                        ),
-                       Icon(
-                           Mdi.plus
+                       IconButton(
+                         padding: EdgeInsets.zero,
+                       icon: Icon( Mdi.plus),
+                         onPressed: (){
+                         increasePackNo();
+                         },
+
                        ),
                      ],
                    ),
@@ -321,5 +331,20 @@ class _ProductDetailState extends State<ProductDetail> {
     );
         }
 
+  void reducePackNo() {
+    if(packNo >= 1){
+      //we don't want users selecting negative number
+      setState(() {
+        packNo--;
+      });
+
+    }
+  }
+  void increasePackNo() {
+    setState(() {
+      packNo++;
+    });
+
+  }
 }
 
