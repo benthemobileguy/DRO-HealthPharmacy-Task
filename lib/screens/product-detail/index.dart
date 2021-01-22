@@ -1,6 +1,7 @@
 import 'package:DROHealthPharmacy/bloc/default.dart';
 import 'package:DROHealthPharmacy/screens/product-detail/custom-dialog-box.dart';
 import 'package:DROHealthPharmacy/screens/product-detail/product-details-component.dart';
+import 'package:DROHealthPharmacy/screens/view-bag/index.dart';
 import 'package:DROHealthPharmacy/theme/style.dart';
 import 'package:DROHealthPharmacy/utils/color.dart';
 import 'package:flutter/material.dart';
@@ -38,32 +39,41 @@ class _ProductDetailState extends State<ProductDetail> {
               },
           ),
         actions: [
-          Container(
-            margin: EdgeInsets.symmetric(vertical: 6, horizontal: 6),
-            padding: EdgeInsets.only(left: 14, right: 14, top: 4, bottom: 4),
-            decoration: BoxDecoration(
-              borderRadius:
-              BorderRadius.circular(12.0),
-              color: droPurple
-            ),
-            child: Row(
-              children: [
-                new Image.asset("assets/images/bag.png",
-                  color: Colors.white,
-                  height: 20,
-                  width: 20,),
-                SizedBox(
-                  width: 6,
-                ),
-                Text(mainBloc.noOfShoppingItems!=null?
-                '${mainBloc.noOfShoppingItems}':"0",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontFamily: 'ProximaNova"',
-                    fontWeight: FontWeight.w500,
+          GestureDetector(
+            onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context)
+                => ViewBag()),
+              );
+            },
+            child: Container(
+              margin: EdgeInsets.symmetric(vertical: 6, horizontal: 6),
+              padding: EdgeInsets.only(left: 14, right: 14, top: 4, bottom: 4),
+              decoration: BoxDecoration(
+                borderRadius:
+                BorderRadius.circular(12.0),
+                color: droPurple
+              ),
+              child: Row(
+                children: [
+                  new Image.asset("assets/images/bag.png",
                     color: Colors.white,
-                  ),),
-              ],
+                    height: 20,
+                    width: 20,),
+                  SizedBox(
+                    width: 6,
+                  ),
+                  Text(mainBloc.noOfShoppingItems!=null?
+                  '${mainBloc.noOfShoppingItems}':"0",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontFamily: 'ProximaNova',
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white,
+                    ),),
+                ],
+              ),
             ),
           ),
         ],
@@ -90,14 +100,14 @@ class _ProductDetailState extends State<ProductDetail> {
               Text(mainBloc.products[widget.index].name,
                 style: TextStyle(
                   fontSize: 18.5,
-                  fontFamily: 'ProximaNova"',
+                  fontFamily: 'ProximaNova',
                   fontWeight: FontWeight.w700,
                   color: Colors.black,
                 ),),
               Text('${mainBloc.products[widget.index].quantity}',
                 style: TextStyle(
                   fontSize: 12.5,
-                  fontFamily: 'ProximaNova"',
+                  fontFamily: 'ProximaNova',
                   fontWeight: FontWeight.w500,
                   color: greyColor,
                 ),),
@@ -124,7 +134,7 @@ class _ProductDetailState extends State<ProductDetail> {
                       Text('SOLD BY',
                         style: TextStyle(
                           fontSize: 12,
-                          fontFamily: 'ProximaNova"',
+                          fontFamily: 'ProximaNova',
                           fontWeight: FontWeight.w700,
                           color: greyColor,
                         ),),
@@ -134,7 +144,7 @@ class _ProductDetailState extends State<ProductDetail> {
                       Text('Emzor Pharmaceuticals',
                         style: TextStyle(
                           fontSize: 12,
-                          fontFamily: 'ProximaNova"',
+                          fontFamily: 'ProximaNova',
                           fontWeight: FontWeight.w700,
                           color: Colors.blueGrey,
                         ),),
@@ -169,7 +179,7 @@ class _ProductDetailState extends State<ProductDetail> {
                        Text('$packNo',
                          style: TextStyle(
                            fontSize: 18,
-                           fontFamily: 'ProximaNova"',
+                           fontFamily: 'ProximaNova',
                            fontWeight: FontWeight.w500,
                            color: Colors.black87,
                          ),),
@@ -193,7 +203,7 @@ class _ProductDetailState extends State<ProductDetail> {
                  Text('Packs(s)',
                    style: TextStyle(
                      fontSize: 14,
-                     fontFamily: 'ProximaNova"',
+                     fontFamily: 'ProximaNova',
                      fontWeight: FontWeight.w400,
                      color: greyColor,
                    ),),
@@ -210,7 +220,7 @@ class _ProductDetailState extends State<ProductDetail> {
                  Text(mainBloc.products[widget.index].amount,
                    style: TextStyle(
                      fontSize: 16,
-                     fontFamily: 'ProximaNova"',
+                     fontFamily: 'ProximaNova',
                      fontWeight: FontWeight.w700,
                      color: Colors.black87,
                    ),),
@@ -222,7 +232,7 @@ class _ProductDetailState extends State<ProductDetail> {
               Text('PRODUCT DETAILS',
                 style: TextStyle(
                   fontSize: 14,
-                  fontFamily: 'ProximaNova"',
+                  fontFamily: 'ProximaNova',
                   fontWeight: FontWeight.w700,
                   color: Colors.blueGrey,
                 ),),
@@ -267,7 +277,7 @@ class _ProductDetailState extends State<ProductDetail> {
                 child: Text('1 pack of Garlic Oil contains 3 units(s) of 10 Tablet(s)',
                   style: TextStyle(
                     fontSize: 12.5,
-                    fontFamily: 'ProximaNova"',
+                    fontFamily: 'ProximaNova',
                     fontWeight: FontWeight.w500,
                     color: greyColor,
                   ),),
@@ -297,7 +307,7 @@ class _ProductDetailState extends State<ProductDetail> {
                       Text('Add to bag',
                         style: TextStyle(
                           fontSize: 14,
-                          fontFamily: 'ProximaNova"',
+                          fontFamily: 'ProximaNova',
                           fontWeight: FontWeight.w500,
                           color: Colors.white,
                         ),),
@@ -322,6 +332,8 @@ class _ProductDetailState extends State<ProductDetail> {
   }
 
   void addToBag(BuildContext context) {
+    //set state of shopping items bloc
+    mainBloc.noOfShoppingItems = mainBloc.noOfShoppingItems + 1;
     //show dialog afterwards
     showDialog(
         context: context,

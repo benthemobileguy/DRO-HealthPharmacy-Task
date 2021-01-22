@@ -6,7 +6,7 @@ class MainBloc with
     ChangeNotifier{
 
   String _bearerToken;
-  int _noOfShoppingItems;
+  int _noOfShoppingItems = 0;
   List<Product> _products;
 
   String get bearerToken {
@@ -23,6 +23,7 @@ class MainBloc with
 
   set noOfShoppingItems(value) {
     _noOfShoppingItems = value;
+    notifyListeners();
   }
   List<Product> get products {
     return _products;

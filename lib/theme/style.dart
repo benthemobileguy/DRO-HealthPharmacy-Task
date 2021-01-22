@@ -18,13 +18,13 @@ ThemeData appTheme = new ThemeData(
 
 TextStyle defaultTextStyle = TextStyle(
   fontSize: 16,
-  fontFamily: 'ProximaNova"',
+  fontFamily: 'ProximaNova',
   fontWeight: FontWeight.w700,
   color: Colors.black,
 );
 TextStyle lightTextStyle = TextStyle(
   fontSize: 12,
-  fontFamily: 'ProximaNova"',
+  fontFamily: 'ProximaNova',
   fontWeight: FontWeight.w500,
   color: greyColor,
 );

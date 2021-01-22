@@ -25,14 +25,14 @@ class ProductDetailsComponent extends StatelessWidget {
             Text(title,
               style: TextStyle(
                 fontSize: 12.5,
-                fontFamily: 'ProximaNova"',
+                fontFamily: 'ProximaNova',
                 fontWeight: FontWeight.w700,
                 color: Colors.blueGrey.withOpacity(0.8),
               ),),
             Text(subTitle,
               style: TextStyle(
                 fontSize: 12.5,
-                fontFamily: 'ProximaNova"',
+                fontFamily: 'ProximaNova',
                 fontWeight: FontWeight.w700,
                 color: Colors.blueGrey,
               ),),

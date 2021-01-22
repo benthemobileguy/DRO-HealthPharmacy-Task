@@ -184,7 +184,7 @@ class _HomePageState extends State<HomePage> {
                       Text('Bag',
                         style: TextStyle(
                           fontSize: 16,
-                          fontFamily: 'ProximaNova"',
+                          fontFamily: 'ProximaNova',
                           fontWeight: FontWeight.w500,
                           color: Colors.white,
                         ),),
@@ -195,10 +195,11 @@ class _HomePageState extends State<HomePage> {
                           shape: BoxShape.circle,
                           color: Colors.white
                         ),
-                        child: Text('4',
+                        child: Text(mainBloc.noOfShoppingItems!=null?
+                        '${mainBloc.noOfShoppingItems}':"0",
                           style: TextStyle(
                             fontSize: 16,
-                            fontFamily: 'ProximaNova"',
+                            fontFamily: 'ProximaNova',
                             fontWeight: FontWeight.w700,
                             color: Colors.black,
                           ),),

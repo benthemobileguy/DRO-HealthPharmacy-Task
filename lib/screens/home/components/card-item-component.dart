@@ -76,7 +76,7 @@ class CardItemComponent extends StatelessWidget {
                             child: Text('\u20A6${products[index].amount}',
                               style: TextStyle(
                                 fontSize: 12,
-                                fontFamily: 'ProximaNova"',
+                                fontFamily: 'ProximaNova',
                                 fontWeight: FontWeight.w500,
                                 color: Colors.white,
                               ),),
