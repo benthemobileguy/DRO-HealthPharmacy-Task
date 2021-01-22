@@ -6,25 +6,27 @@ class MainBloc with
     ChangeNotifier{
 
   String _bearerToken;
-  int _noOfShoppingItems = 0;
-  List<Product> _products;
+  List<Product> _products = [];
+  List<Product> _productsInBag = [];
 
   String get bearerToken {
     return _bearerToken;
-  }
-  int get noOfShoppingItems {
-    return _noOfShoppingItems;
   }
   set products (List<Product> _data) {
     this._products = _data;
 
     notifyListeners();
   }
+  List<Product> get productsInBag {
+    return _productsInBag;
+  }
 
-  set noOfShoppingItems(value) {
-    _noOfShoppingItems = value;
+   addProductsInBag (Product _data) {
+    this._productsInBag.add(_data);
     notifyListeners();
   }
+
+
   List<Product> get products {
     return _products;
   }

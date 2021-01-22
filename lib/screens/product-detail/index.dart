@@ -64,8 +64,8 @@ class _ProductDetailState extends State<ProductDetail> {
                   SizedBox(
                     width: 6,
                   ),
-                  Text(mainBloc.noOfShoppingItems!=null?
-                  '${mainBloc.noOfShoppingItems}':"0",
+                  Text(mainBloc.productsInBag!=null?
+                  '${mainBloc.productsInBag.length}':"0",
                     style: TextStyle(
                       fontSize: 16,
                       fontFamily: 'ProximaNova',
@@ -331,9 +331,9 @@ class _ProductDetailState extends State<ProductDetail> {
     );
   }
 
-  void addToBag(BuildContext context) {
+ addToBag(BuildContext context) {
     //set state of shopping items bloc
-    mainBloc.noOfShoppingItems = mainBloc.noOfShoppingItems + 1;
+   mainBloc.addProductsInBag(mainBloc.products[widget.index]);
     //show dialog afterwards
     showDialog(
         context: context,

@@ -195,8 +195,9 @@ class _HomePageState extends State<HomePage> {
                           shape: BoxShape.circle,
                           color: Colors.white
                         ),
-                        child: Text(mainBloc.noOfShoppingItems!=null?
-                        '${mainBloc.noOfShoppingItems}':"0",
+                        child: Text(mainBloc.
+                        productsInBag!=null?
+                        '${mainBloc.productsInBag.length}':"0",
                           style: TextStyle(
                             fontSize: 16,
                             fontFamily: 'ProximaNova',
