@@ -1,7 +1,10 @@
 import 'package:DROHealthPharmacy/bloc/default.dart';
-import 'package:DROHealthPharmacy/screens/product-detail/produxt-details-component.dart';
+import 'package:DROHealthPharmacy/screens/product-detail/custom-dialog-box.dart';
+import 'package:DROHealthPharmacy/screens/product-detail/product-details-component.dart';
 import 'package:DROHealthPharmacy/theme/style.dart';
+import 'package:DROHealthPharmacy/utils/color.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:mdi/mdi.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -264,7 +267,7 @@ class _ProductDetailState extends State<ProductDetail> {
             Center(
               child: FlatButton(
                 onPressed: (){
-                  showDialogBox();
+                  showDialogBox(context);
                 },
                 child: Container(
                   margin: EdgeInsets.symmetric(horizontal: 40),
@@ -307,13 +310,16 @@ class _ProductDetailState extends State<ProductDetail> {
     );
   }
 
-  void showDialogBox() {
-    showDialog(context: context,
-      builder: (BuildContext context) {
-        return Container(
+  void showDialogBox(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context){
+         return CustomDialogBox(
+            name: mainBloc.products[widget.index].name,
+          );
+        }
+    );
+        }
 
-        );
-      },);
-  }
 }
 
