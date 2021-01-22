@@ -3,6 +3,7 @@ import 'package:DROHealthPharmacy/theme/style.dart';
 import 'package:flutter/material.dart';
 import 'package:mdi/mdi.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 class ProductDetail extends StatefulWidget {
  final int index;
   const ProductDetail({Key key, this.index}) : super(key: key);
@@ -71,8 +72,8 @@ class _ProductDetailState extends State<ProductDetail> {
               Align(
                 alignment: Alignment.center,
                 child: Container(
-                  width: 250,
-                  height: 250,
+                  width: 210,
+                  height: 210,
                   child: new Image.asset
                     (mainBloc.products[widget.index].image),
                 ),
@@ -141,11 +142,11 @@ class _ProductDetailState extends State<ProductDetail> {
              Row(
                children: [
                  Container(
-                   padding: EdgeInsets.all(20),
+                   padding: EdgeInsets.all(8),
                    decoration: BoxDecoration(
                      border: Border.all(color: Colors.grey),
                      borderRadius: BorderRadius.all(
-                         Radius.circular(20)),
+                         Radius.circular(10)),
                    ),
                    child: Row(
                      children: [
@@ -157,10 +158,10 @@ class _ProductDetailState extends State<ProductDetail> {
                        ),
                        Text('1',
                          style: TextStyle(
-                           fontSize: 12.5,
+                           fontSize: 18,
                            fontFamily: 'ProximaNova"',
                            fontWeight: FontWeight.w500,
-                           color: greyColor,
+                           color: Colors.black87,
                          ),),
                        SizedBox(
                          width: 20,
@@ -171,16 +172,78 @@ class _ProductDetailState extends State<ProductDetail> {
                      ],
                    ),
                  ),
+                 SizedBox(
+                   width: 10,
+                 ),
                  Text('Packs(s)',
                    style: TextStyle(
-                     fontSize: 12.5,
+                     fontSize: 14,
                      fontFamily: 'ProximaNova"',
-                     fontWeight: FontWeight.w500,
+                     fontWeight: FontWeight.w400,
                      color: greyColor,
                    ),),
+                 Spacer(),
+                 Container(
+                   margin: EdgeInsets.only(bottom: 8),
+                   child: SvgPicture.asset(
+                     'assets/images/svg/blacknaira.svg',
+                     width: 9,
+                     height: 9,
+                     color: Colors.black87,
+                   ),
+                 ),
+                 Text(mainBloc.products[widget.index].amount,
+                   style: TextStyle(
+                     fontSize: 14,
+                     fontFamily: 'ProximaNova"',
+                     fontWeight: FontWeight.w700,
+                     color: Colors.black87,
+                   ),),
                ],
-             )
-
+             ),
+              SizedBox(
+                height: 40,
+              ),
+              Text('PRODUCT DETAILS',
+                style: TextStyle(
+                  fontSize: 14,
+                  fontFamily: 'ProximaNova"',
+                  fontWeight: FontWeight.w700,
+                  color: Colors.blueGrey,
+                ),),
+              SizedBox(
+                height: 14,
+              ),
+            Row(
+              children: [
+                new Image.asset("assets/images/pills.png",
+                  height: 25,
+                  width: 25,
+                color: darkPurple,),
+                SizedBox(
+                  width: 10,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('PACK SIZE',
+                      style: TextStyle(
+                        fontSize: 12.5,
+                        fontFamily: 'ProximaNova"',
+                        fontWeight: FontWeight.w700,
+                        color: Colors.blueGrey.withOpacity(0.8),
+                      ),),
+                    Text('3x10',
+                      style: TextStyle(
+                        fontSize: 12.5,
+                        fontFamily: 'ProximaNova"',
+                        fontWeight: FontWeight.w700,
+                        color: Colors.blueGrey,
+                      ),),
+                  ],
+                ),
+              ],
+            ),
             ],
           ),
         ),
