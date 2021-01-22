@@ -1,4 +1,5 @@
 import 'package:DROHealthPharmacy/bloc/default.dart';
+import 'package:DROHealthPharmacy/screens/product-detail/produxt-details-component.dart';
 import 'package:DROHealthPharmacy/theme/style.dart';
 import 'package:flutter/material.dart';
 import 'package:mdi/mdi.dart';
@@ -214,7 +215,67 @@ class _ProductDetailState extends State<ProductDetail> {
               SizedBox(
                 height: 14,
               ),
-            ProductDetailsComponent(),
+            Row(
+              children: [
+                ProductDetailsComponent(
+                  image: "assets/images/pills.png",
+                  title: "PACK SIZE",
+                  subTitle: "3x10",
+                ),
+                Spacer(),
+                ProductDetailsComponent(
+                  image: "assets/images/qr_code.png",
+                  title: "PRODUCT ID",
+                  subTitle: "PROBRYVPW1",
+                ),
+              ],
+            ),
+              SizedBox(
+                height: 14,
+              ),
+              ProductDetailsComponent(
+                image: "assets/images/pills.png",
+                title: "CONSTITUENTS",
+                subTitle: "Garlic Oil",
+              ),
+              SizedBox(
+                height: 14,
+              ),
+              ProductDetailsComponent(
+                image: "assets/images/pack.png",
+                title: "DISPENSED IN",
+                subTitle: "Packs",
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Center(
+                child: Text('1 pack of Garlic Oil contains 3 units(s) of 10 Tablet(s)',
+                  style: TextStyle(
+                    fontSize: 12.5,
+                    fontFamily: 'ProximaNova"',
+                    fontWeight: FontWeight.w500,
+                    color: greyColor,
+                  ),),
+              ),
+              SizedBox(
+                height: 40,
+              ),
+            Center(
+              child: Container(
+                margin: EdgeInsets.symmetric(horizontal: 40),
+                height: 50,
+                width: double.infinity,
+                child: new Image.asset("assets/images/add_bag.png", width: 25, height: 25,),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  color: droPurple,
+                ),
+              ),
+            ),
+              SizedBox(
+                height: 40,
+              ),
             ],
           ),
         ),
