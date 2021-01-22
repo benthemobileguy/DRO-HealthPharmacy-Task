@@ -266,7 +266,25 @@ class _ProductDetailState extends State<ProductDetail> {
                 margin: EdgeInsets.symmetric(horizontal: 40),
                 height: 50,
                 width: double.infinity,
-                child: new Image.asset("assets/images/add_bag.png", width: 25, height: 25,),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    new Image.asset("assets/images/add_bag.png",
+                      color: Colors.white,
+                      width: 20,
+                      height: 20,),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text('Add to bag',
+                      style: TextStyle(
+                        fontSize: 12.5,
+                        fontFamily: 'ProximaNova"',
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
+                      ),),
+                  ],
+                ),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(10)),
                   color: droPurple,
