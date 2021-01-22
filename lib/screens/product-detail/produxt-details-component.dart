@@ -1,3 +1,4 @@
+import 'package:DROHealthPharmacy/theme/style.dart';
 import 'package:flutter/material.dart';
 class ProductDetailsComponent extends StatelessWidget {
   const ProductDetailsComponent({
