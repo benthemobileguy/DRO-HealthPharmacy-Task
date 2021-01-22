@@ -278,11 +278,11 @@ class _ProductDetailState extends State<ProductDetail> {
             Center(
               child: FlatButton(
                 onPressed: (){
-                  showDialogBox(context);
+                  addToBag(context);
                 },
                 child: Container(
                   margin: EdgeInsets.symmetric(horizontal: 40),
-                  height: 50,
+                  height: 55,
                   width: double.infinity,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -296,7 +296,7 @@ class _ProductDetailState extends State<ProductDetail> {
                       ),
                       Text('Add to bag',
                         style: TextStyle(
-                          fontSize: 12.5,
+                          fontSize: 14,
                           fontFamily: 'ProximaNova"',
                           fontWeight: FontWeight.w500,
                           color: Colors.white,
@@ -321,7 +321,8 @@ class _ProductDetailState extends State<ProductDetail> {
     );
   }
 
-  void showDialogBox(BuildContext context) {
+  void addToBag(BuildContext context) {
+    //show dialog afterwards
     showDialog(
         context: context,
         builder: (BuildContext context){
