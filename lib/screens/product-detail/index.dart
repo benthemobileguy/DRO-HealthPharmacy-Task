@@ -55,7 +55,8 @@ class _ProductDetailState extends State<ProductDetail> {
                 SizedBox(
                   width: 6,
                 ),
-                Text('0',
+                Text(mainBloc.noOfShoppingItems!=null?
+                '${mainBloc.noOfShoppingItems}':"0",
                   style: TextStyle(
                     fontSize: 16,
                     fontFamily: 'ProximaNova"',
@@ -208,7 +209,7 @@ class _ProductDetailState extends State<ProductDetail> {
                  ),
                  Text(mainBloc.products[widget.index].amount,
                    style: TextStyle(
-                     fontSize: 14,
+                     fontSize: 16,
                      fontFamily: 'ProximaNova"',
                      fontWeight: FontWeight.w700,
                      color: Colors.black87,
