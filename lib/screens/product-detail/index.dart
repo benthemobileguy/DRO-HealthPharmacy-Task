@@ -262,32 +262,37 @@ class _ProductDetailState extends State<ProductDetail> {
                 height: 40,
               ),
             Center(
-              child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 40),
-                height: 50,
-                width: double.infinity,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    new Image.asset("assets/images/add_bag.png",
-                      color: Colors.white,
-                      width: 20,
-                      height: 20,),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text('Add to bag',
-                      style: TextStyle(
-                        fontSize: 12.5,
-                        fontFamily: 'ProximaNova"',
-                        fontWeight: FontWeight.w500,
+              child: FlatButton(
+                onPressed: (){
+                  showDialogBox();
+                },
+                child: Container(
+                  margin: EdgeInsets.symmetric(horizontal: 40),
+                  height: 50,
+                  width: double.infinity,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      new Image.asset("assets/images/add_bag.png",
                         color: Colors.white,
-                      ),),
-                  ],
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                  color: droPurple,
+                        width: 20,
+                        height: 20,),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text('Add to bag',
+                        style: TextStyle(
+                          fontSize: 12.5,
+                          fontFamily: 'ProximaNova"',
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white,
+                        ),),
+                    ],
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    color: droPurple,
+                   ),
                 ),
               ),
             ),
@@ -300,6 +305,15 @@ class _ProductDetailState extends State<ProductDetail> {
       ),
       backgroundColor: Colors.white,
     );
+  }
+
+  void showDialogBox() {
+    showDialog(context: context,
+      builder: (BuildContext context) {
+        return Container(
+
+        );
+      },);
   }
 }
 
