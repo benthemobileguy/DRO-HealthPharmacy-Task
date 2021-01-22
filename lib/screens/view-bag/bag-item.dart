@@ -1,4 +1,5 @@
 import 'package:DROHealthPharmacy/bloc/default.dart';
+import 'package:DROHealthPharmacy/utils/global-variables.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 class BagItem extends StatelessWidget {
@@ -11,12 +12,11 @@ class BagItem extends StatelessWidget {
     MainBloc mainBloc = Provider.of<MainBloc>(context);
     return Expanded(
       child: ListView.builder(
-        physics: NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         itemCount: mainBloc.productsInBag.length,
-        itemBuilder: (index, context){
+        itemBuilder: (context, index){
           return  Padding(
-            padding: const EdgeInsets.only(top: 5, bottom: 5),
+            padding: const EdgeInsets.only(bottom: 16),
             child: Row(
               children: [
                 SizedBox(
@@ -26,7 +26,7 @@ class BagItem extends StatelessWidget {
                     radius: 35,
                     backgroundColor: Colors.white,
                     child: Image.asset(
-                      "assets/images/items/image1.png",
+                      mainBloc.productsInBag[index].image,
                       fit: BoxFit.cover,
                       width: 90.0,
                       height: 90.0,
@@ -50,7 +50,7 @@ class BagItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Vitamin E 400',
+                      mainBloc.productsInBag[index].quantity,
                       style: TextStyle(
                         fontSize: 16,
                         fontFamily: 'ProximaNova',
@@ -58,8 +58,11 @@ class BagItem extends StatelessWidget {
                         color: Colors.white,
                       ),
                     ),
+                    SizedBox(
+                      height: 3,
+                    ),
                     Text(
-                      'Capsule',
+                      mainBloc.productsInBag[index].type,
                       style: TextStyle(
                         fontSize: 12.5,
                         fontFamily: 'ProximaNova',
@@ -71,7 +74,7 @@ class BagItem extends StatelessWidget {
                 ),
                 Spacer(),
                 Text(
-                  '925',
+                  '\u20A6 ${mainBloc.productsInBag[index].amount}',
                   style: TextStyle(
                     fontSize: 16,
                     fontFamily: 'ProximaNova',

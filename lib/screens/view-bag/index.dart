@@ -112,9 +112,57 @@ class _ViewBagState extends State<ViewBag> {
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 10,
               ),
               BagItem(),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: Row(
+                  children: [
+                    Text(
+                      'Total',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontFamily: 'ProximaNova',
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Spacer(),
+                    Text(
+                      '\u20A6${mainBloc.productsInBag.fold(0, (sum, item) =>
+                      sum + int.parse(item.amount))}',
+                      ///function to add all items to a list
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontFamily: 'ProximaNova',
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+                height: 55,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                  borderRadius: BorderRadius.circular(20)
+                ),
+                child:  Center(
+                  child: Text(
+                    'Checkout',
+                    ///function to add all items to a list
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontFamily: 'ProximaNova',
+                      fontWeight: FontWeight.w700,
+                      color: Colors.black87,
+                    ),
+                  ),
+                ),
+              )
             ],
           ),
         ),

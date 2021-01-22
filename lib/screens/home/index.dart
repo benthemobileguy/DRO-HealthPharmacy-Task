@@ -2,6 +2,7 @@ import 'package:DROHealthPharmacy/bloc/default.dart';
 import 'package:DROHealthPharmacy/model/product.dart';
 import 'package:DROHealthPharmacy/screens/home/components/card-item-component.dart';
 import 'package:DROHealthPharmacy/screens/home/components/circle-button.dart';
+import 'package:DROHealthPharmacy/screens/view-bag/index.dart';
 import 'package:DROHealthPharmacy/theme/style.dart';
 import 'package:DROHealthPharmacy/utils/global-variables.dart';
 import 'package:flutter/material.dart';
@@ -189,21 +190,30 @@ class _HomePageState extends State<HomePage> {
                           color: Colors.white,
                         ),),
                       Spacer(),
-                      Container(
-                        padding: EdgeInsets.all(14),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.white
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context)
+                            => ViewBag()),
+                          );
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(14),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.white
+                          ),
+                          child: Text(mainBloc.
+                          productsInBag!=null?
+                          '${mainBloc.productsInBag.length}':"0",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontFamily: 'ProximaNova',
+                              fontWeight: FontWeight.w700,
+                              color: Colors.black,
+                            ),),
                         ),
-                        child: Text(mainBloc.
-                        productsInBag!=null?
-                        '${mainBloc.productsInBag.length}':"0",
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontFamily: 'ProximaNova',
-                            fontWeight: FontWeight.w700,
-                            color: Colors.black,
-                          ),),
                       ),
                       SizedBox(
                         width: 30,
